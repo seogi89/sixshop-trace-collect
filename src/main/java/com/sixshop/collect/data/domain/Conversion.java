@@ -18,29 +18,31 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Getter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Trace {
+public class Conversion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String uuid;
     private Long mid;
-    private String oid;
+    private String uuid;
     private Long customer;
-    private String event;
-    private String page;
+    private Long reviewId;
+    private String target; // post , picture
+    private boolean photoReview;
     private String device;
     @CreatedDate
     private LocalDateTime createdAt;
 
     @Builder
-    public Trace(Long mid, String uuid, String oid, String event, String page, Long customer, String device) {
+    public Conversion(Long mid, String uuid, Long customer, Long reviewId, String target, boolean photoReview, String device) {
         this.mid = mid;
         this.uuid = uuid;
-        this.event = event;
-        this.page = page;
-        this.oid = oid;
         this.customer = customer;
+        this.reviewId = reviewId;
+        this.target = target;
+        this.photoReview = photoReview;
         this.device = device;
     }
+
+
 }

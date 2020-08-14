@@ -21,7 +21,8 @@ public class CollectRouter {
 
     @Bean
     public RouterFunction<ServerResponse> route(CollectHandler handler) {
-        return RouterFunctions.route(POST("/").and(accept(APPLICATION_JSON)), handler::collect)
+        return RouterFunctions.route(POST("/").and(accept(APPLICATION_JSON)), handler::trace)
+            .andRoute(POST("/conversion").and(accept(APPLICATION_JSON)), handler::conversion)
             .andRoute(GET("/").and(accept(APPLICATION_JSON)), handler::ok);
     }
 

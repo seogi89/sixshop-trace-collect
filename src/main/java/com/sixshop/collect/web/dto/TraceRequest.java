@@ -7,17 +7,21 @@ import lombok.Getter;
 public class TraceRequest {
 
     private Long mid;
+    private Long customer;
     private String uuid;
+    private String oid;
     private String event;
+    private String page;
     private String device;
-    private boolean anonymous;
 
     public Trace toEntity() {
         return Trace.builder()
             .mid(mid)
+            .customer(customer)
             .uuid(uuid)
+            .oid(oid)
             .event(event)
-            .anonymous(anonymous)
+            .page(page)
             .device(device)
             .build();
     }
