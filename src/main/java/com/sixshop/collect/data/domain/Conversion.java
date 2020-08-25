@@ -26,6 +26,7 @@ public class Conversion {
     private Long mid;
     private String uuid;
     private Long customer;
+    private Long productId;
     private Long reviewId;
     private String target; // post , picture
     private boolean photoReview;
@@ -34,10 +35,11 @@ public class Conversion {
     private LocalDateTime createdAt;
 
     @Builder
-    public Conversion(Long mid, String uuid, Long customer, Long reviewId, String target, boolean photoReview, String device) {
+    public Conversion(Long mid, String uuid, Long customer, Long productId, Long reviewId, String target, boolean photoReview, String device) {
         this.mid = mid;
         this.uuid = uuid;
         this.customer = customer;
+        this.productId = productId;
         this.reviewId = reviewId;
         this.target = target;
         this.photoReview = photoReview;

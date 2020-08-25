@@ -10,6 +10,7 @@ public class ConversionRequest {
     private Long mid;
     private String uuid;
     private Long customer;
+    private Long productId;
     private Long reviewId;
     private String target; // post , picture
     private boolean photoReview;
@@ -20,6 +21,7 @@ public class ConversionRequest {
             .mid(mid)
             .uuid(uuid)
             .customer(customer)
+            .productId(productId)
             .reviewId(reviewId)
             .target(target)
             .photoReview(photoReview)
