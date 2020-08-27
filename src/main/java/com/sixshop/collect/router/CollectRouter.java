@@ -8,9 +8,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import com.sixshop.collect.web.CollectHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
 import org.springframework.web.reactive.config.EnableWebFlux;
-import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -23,6 +21,7 @@ public class CollectRouter {
     public RouterFunction<ServerResponse> route(CollectHandler handler) {
         return RouterFunctions.route(POST("/").and(accept(APPLICATION_JSON)), handler::trace)
             .andRoute(POST("/conversion").and(accept(APPLICATION_JSON)), handler::conversion)
+            .andRoute(POST("/track-conversion").and(accept(APPLICATION_JSON)), handler::trackConversion)
             .andRoute(GET("/").and(accept(APPLICATION_JSON)), handler::ok);
     }
 
